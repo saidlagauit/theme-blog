@@ -1,0 +1,66 @@
+@import "~bootstrap/scss/bootstrap";
+
+body {
+    font-size: 1.3rem;
+}
+
+a {
+    text-decoration: none;
+    color: initial;
+}
+
+.post {
+    padding: 0.2rem;
+    a {
+        color: inherit;
+    }
+}
+
+.single-blog {
+    .single-blog-action {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding: 0.5rem 0;
+    }
+    .single-blog-cover {
+        width: 100%;
+        height: 20rem;
+    }
+    .post-navigation {
+        background: var(--bs-tertiary-color);
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+    }
+}
+
+.min-width {
+    width: 75%;
+    margin: 0 auto;
+    @media (max-width: 576px) {
+        width: 100%;
+    }
+}
+
+.home {
+    .cover {
+        .cover-title {
+            font-size: 4rem;
+            @media (max-width: 576px) {
+                font-size: 2rem;
+            }
+        }
+        .cover-disc {
+            @media (max-width: 576px) {
+                font-size: 1.3rem;
+            }
+        }
+    }
+}
+
+.btn-action {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
