@@ -2067,6 +2067,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 document.addEventListener("DOMContentLoaded", function () {
+  //
   var textarea = document.getElementById("meta_description");
   var charCount = document.getElementById("char-count");
   var maxChars = 160;
@@ -2086,10 +2087,14 @@ document.addEventListener("DOMContentLoaded", function () {
       textarea.classList.remove("border-danger");
     }
   });
+
+  //
   setTimeout(function () {
     var _document$getElementB;
     (_document$getElementB = document.getElementById("msg-alert")) === null || _document$getElementB === void 0 || _document$getElementB.remove();
   }, 2000);
+
+  //
   var simplemde = new SimpleMDE({
     element: document.getElementById("content")
   });
