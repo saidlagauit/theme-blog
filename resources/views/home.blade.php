@@ -19,7 +19,7 @@
                         <a href="{{ route('blog.single-blog', $post->slug) }}"
                             class="d-flex justify-content-between align-items-center">
                             <p class="m-0">{{ $post->title }}</p>
-                            <span>{{ $post->created_at->format('Y-m-d') }}</span>
+                            <span>{{ $post->created_at->format('F d, Y') }}</span>
                         </a>
                     </div>
                 @endforeach

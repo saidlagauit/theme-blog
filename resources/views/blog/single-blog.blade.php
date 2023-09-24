@@ -26,7 +26,7 @@
 
         <h2 class="single-blog-title">{{ $post->title }}</h2>
 
-        <span class="text-muted">Posted on {{ $post->created_at->format('Y-m-d') }}</span>
+        <span class="text-muted">Published {{ $post->created_at->format('F d, Y') }}</span>
 
         <div class="single-blog-content">
             {!! Parsedown::instance()->text($post->content) !!}
