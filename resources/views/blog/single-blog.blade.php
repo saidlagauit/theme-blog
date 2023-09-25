@@ -14,8 +14,7 @@
                 <form method="POST" action="{{ route('auth.posts.destroy', ['id' => $post->id]) }}">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="btn btn-danger"
-                        onclick="return confirm('Are you sure you want to delete this post?')">Delete</button>
+                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this post?')">Delete</button>
                 </form>
 
             </div>

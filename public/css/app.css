@@ -11992,6 +11992,11 @@ a {
   color: inherit;
 }
 
+@media (max-width: 576px) {
+  .single-blog {
+    padding: 1rem 0;
+  }
+}
 .single-blog .single-blog-action {
   display: flex;
   align-items: center;
@@ -12001,6 +12006,10 @@ a {
 .single-blog .single-blog-cover {
   width: 100%;
   height: 20rem;
+}
+.single-blog .single-blog-content,
+.single-blog .single-blog-title {
+  margin: 1rem 0;
 }
 .single-blog .post-navigation {
   background: var(--bs-tertiary-color);
@@ -12036,4 +12045,8 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.edit-post {
+  padding: 1rem 0;
 }
