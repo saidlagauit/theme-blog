@@ -52,10 +52,12 @@ class PostController extends Controller
     {
         $post = Post::where('slug', $slug)->firstOrFail();
 
+        $approvedComments = $post->comments()->where('approved', true)->get();
+
         $previousPost = Post::where('created_at', '<', $post->created_at)->orderBy('created_at', 'desc')->first();
         $nextPost = Post::where('created_at', '>', $post->created_at)->orderBy('created_at', 'asc')->first();
 
-        return view('blog.single-blog', compact('post', 'previousPost', 'nextPost'));
+        return view('blog.single-blog', compact('post', 'approvedComments', 'previousPost', 'nextPost'));
     }
 
     public function edit($id)

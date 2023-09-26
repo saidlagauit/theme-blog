@@ -12016,6 +12016,15 @@ a {
   padding: 0.5rem;
   border-radius: 0.5rem;
 }
+.single-blog .comments {
+  padding: 1rem;
+}
+.single-blog .comments .comment {
+  padding: 0.5rem;
+}
+.single-blog .comments .comment p {
+  margin: 0;
+}
 
 .min-width {
   width: 75%;

@@ -4,9 +4,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\CommentController;
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('/blog/{slug}', [PostController::class, 'show'])->name('blog.single-blog');
+Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
 Route::get('/404', function () {
     return view('errors.404');
 });

@@ -39,6 +39,17 @@ a {
         padding: 0.5rem;
         border-radius: 0.5rem;
     }
+    .comments {
+        padding: 1rem;
+
+        .comment {
+            padding: 0.5rem;
+            p {
+                margin: 0;
+            }
+        }
+
+    }
 }
 
 .min-width {
