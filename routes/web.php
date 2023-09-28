@@ -22,6 +22,7 @@ Route::middleware(['guest'])->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/posts', [PostController::class, 'index'])->name('auth.posts.index');
+
     Route::get('/comments', [CommentController::class, 'index'])->name('auth.posts.comments');
     Route::patch('/comments/{comment}/approve', [CommentController::class, 'update'])->name('auth.posts.comments.approve');
     Route::patch('/comments/{comment}/unapprove', [CommentController::class, 'unapprove'])->name('auth.posts.comments.unapprove');

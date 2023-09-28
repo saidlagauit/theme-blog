@@ -25,7 +25,7 @@
 
         <h2 class="single-blog-title">{{ $post->title }}</h2>
 
-        <span class="text-muted">Published {{ $post->created_at->format('F d, Y') }}</span>
+        <span class="text-muted">Premiered on {{ $post->created_at->format('F d, Y') }}</span>
 
         <div class="single-blog-content">
             {!! Parsedown::instance()->text($post->content) !!}
@@ -91,7 +91,7 @@
         </div>
 
         @if ($previousPost || $nextPost)
-            <div class="post-navigation my-3">
+            <div class="post-navigation bg-body-tertiary my-3">
                 @if ($previousPost)
                     <div class="previous-post">
                         <span>Previous Post:</span>

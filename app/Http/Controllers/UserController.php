@@ -19,7 +19,6 @@ class UserController extends Controller
         return view('auth.register');
     }
 
-
     public function login(Request $request)
     {
         $credentials = $request->only('email', 'password');
