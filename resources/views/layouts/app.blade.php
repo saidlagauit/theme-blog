@@ -30,6 +30,7 @@
                                 {{ Auth::user()->username }}
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a href="{{ route('auth.users.profile', Auth::user()->username) }}" class="dropdown-item">Profile</a></li>
                                 <li><a class="dropdown-item" href="/create">New Post</a></li>
                                 <li><a class="dropdown-item" href="/posts">Manage Posts</a></li>
                                 <li><a class="dropdown-item" href="/comments">Manage Comments</a></li>

@@ -49,6 +49,35 @@ class UserController extends Controller
         return redirect()->route('auth.login')->with('success', 'Registration successful. Please log in.');
     }
 
+    public function profile($username)
+    {
+        $user = User::where('username', $username)->firstOrFail();
+        return view('auth.users.profile', compact('user'));
+    }
+
+    public function edit($username)
+    {
+        $user = User::where('username', $username)->firstOrFail();
+        return view('auth.users.edit', compact('user'));
+    }
+
+    public function update(Request $request, $username)
+    {
+        $user = User::where('username', $username)->firstOrFail();
+
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email,' . $user->id,
+        ]);
+
+        $user->update([
+            'name' => $request->name,
+            'email' => $request->email,
+        ]);
+
+        return redirect()->back()->with('success', 'Profile updated successfully.');
+    }
+
     public function logout()
     {
         Auth::logout();
