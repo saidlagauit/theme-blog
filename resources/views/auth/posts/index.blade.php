@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Blog Theme | Posts')
+@section('title', 'Blog Theme | Manage Posts')
 @section('meta_description', '')
 @section('keywords', '')
 

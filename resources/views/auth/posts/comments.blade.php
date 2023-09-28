@@ -50,8 +50,7 @@
                                     <button type="submit" class="btn btn-danger">Delete</button>
                                 </form>
 
-                                <a href="{{ route('blog.single-blog', ['slug' => $comment->post->slug]) }}"
-                                    class="btn btn-info">View</a>
+                                <a href="{{ route('blog.single-blog', ['slug' => $comment->post->slug]) }}" class="btn btn-info">View</a>
                             </td>
                         </tr>
                     @endforeach

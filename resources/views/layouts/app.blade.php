@@ -31,7 +31,7 @@
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end">
                                 <li><a class="dropdown-item" href="/create">New Post</a></li>
-                                <li><a class="dropdown-item" href="/posts">List Posts</a></li>
+                                <li><a class="dropdown-item" href="/posts">Manage Posts</a></li>
                                 <li><a class="dropdown-item" href="/comments">Manage Comments</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
