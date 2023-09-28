@@ -22,10 +22,17 @@ Route::middleware(['guest'])->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/posts', [PostController::class, 'index'])->name('auth.posts.index');
+    Route::get('/comments', [CommentController::class, 'index'])->name('auth.posts.comments');
+    Route::patch('/comments/{comment}/approve', [CommentController::class, 'update'])->name('auth.posts.comments.approve');
+    Route::patch('/comments/{comment}/unapprove', [CommentController::class, 'unapprove'])->name('auth.posts.comments.unapprove');
+    Route::delete('/comments', [CommentController::class, 'destroy'])->name('auth.posts.comments.destroy');
+
     Route::get('/create', [PostController::class, 'create'])->name('auth.posts.create');
     Route::post('/create', [PostController::class, 'store'])->name('auth.posts.create');
+
     Route::get('/edit/{id}', [PostController::class, 'edit'])->name('auth.posts.edit');
     Route::delete('/delete/{id}', [PostController::class, 'destroy'])->name('auth.posts.destroy');
     Route::put('/update/{id}', [PostController::class, 'update'])->name('auth.posts.update');
+
     Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 });

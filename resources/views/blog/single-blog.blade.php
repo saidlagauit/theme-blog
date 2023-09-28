@@ -57,7 +57,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="Comment">Comment <span class="text-danger">*</span> </label>
+                            <label for="Comment">Comment *</label>
                             <textarea class="form-control @error('comment') is-invalid @enderror" id="Comment" name="comment" rows="4">{{ old('comment') }}</textarea>
                             @error('comment')
                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -66,7 +66,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="name">Name <span class="text-danger">*</span> </label>
+                            <label for="name">Name *</label>
                             <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"
                                 name="name" value="{{ old('name') }}">
                             @error('name')
@@ -76,7 +76,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="email">Email <span class="text-danger">*</span> </label>
+                            <label for="email">Email *</label>
                             <input type="email" class="form-control @error('email') is-invalid @enderror" id="email"
                                 name="email" value="{{ old('email') }}">
                             @error('email')
