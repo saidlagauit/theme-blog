@@ -1,3 +1,4 @@
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
 @import "~bootstrap/scss/bootstrap";
 
 body {
@@ -61,6 +62,10 @@ a {
 
 .home {
     .cover {
+        margin: 3rem 0;
+        @media (max-width: 576px) {
+            margin: 1rem 0;
+        }
         .cover-title {
             font-size: 4rem;
             @media (max-width: 576px) {

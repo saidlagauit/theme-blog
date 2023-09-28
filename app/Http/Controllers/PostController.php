@@ -10,7 +10,7 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::latest()->get();
+        $posts = Post::withCount('comments')->latest()->get();
         return view('auth.posts.index', compact('posts'));
     }
 

@@ -13,8 +13,8 @@
                     <tr>
                         <th>Author (email)</th>
                         <th>Comment</th>
-                        <th>Submitted on</th>
-                        <th>Actions</th>
+                        <th>Date</th>
+                        <th>Controller</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -32,14 +32,14 @@
                                         action="{{ route('auth.posts.comments.approve', ['comment' => $comment->id]) }}">
                                         @csrf
                                         @method('PATCH')
-                                        <button type="submit" class="btn btn-success">Approve</button>
+                                        <button type="submit" class="btn btn-success"><i class="fa-solid fa-circle-check"></i></button>
                                     </form>
                                 @else
                                     <form method="POST"
                                         action="{{ route('auth.posts.comments.unapprove', ['comment' => $comment->id]) }}">
                                         @csrf
                                         @method('PATCH')
-                                        <button type="submit" class="btn btn-warning">Unapprove</button>
+                                        <button type="submit" class="btn btn-warning"><i class="fa-solid fa-circle-xmark"></i></button>
                                     </form>
                                 @endif
 
@@ -47,10 +47,10 @@
                                     action="{{ route('auth.posts.comments.destroy', ['comment' => $comment->id]) }}">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                    <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                                 </form>
 
-                                <a href="{{ route('blog.single-blog', ['slug' => $comment->post->slug]) }}" class="btn btn-info">View</a>
+                                <a href="{{ route('blog.single-blog', ['slug' => $comment->post->slug]) }}" class="btn btn-info"><i class="fa-solid fa-eye"></i></a>
                             </td>
                         </tr>
                     @endforeach

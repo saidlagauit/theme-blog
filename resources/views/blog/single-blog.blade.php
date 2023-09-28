@@ -10,11 +10,11 @@
         @auth
 
             <div class="single-blog-action text-bg-warning">
-                <a href="{{ route('auth.posts.edit', ['id' => $post->id]) }}" class="btn btn-success">Edit</a>
+                <a href="{{ route('auth.posts.edit', ['id' => $post->id]) }}" class="btn btn-success"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
                 <form method="POST" action="{{ route('auth.posts.destroy', ['id' => $post->id]) }}">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this post?')">Delete</button>
+                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this post?')"><i class="fa-solid fa-trash"></i> Delete</button>
                 </form>
 
             </div>
