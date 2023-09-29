@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
-@section('title', 'Blog Theme | Edit Profile ' . $user->name)
+@section('title', 'Blog Theme | Edit Profile')
 @section('meta_description', '')
 @section('keywords', '')
 
 @section('content')
 
-    <div class="edit-profile min-width">
+    <div class="edit-profile">
         <h1>Edit Profile</h1>
         <form method="POST" action="{{ route('auth.users.update', ['username' => $user->username]) }}" enctype="multipart/form-data" autocomplete="off">
             @csrf

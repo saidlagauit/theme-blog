@@ -5,7 +5,7 @@
 @section('keywords', '')
 
 @section('content')
-    <div class="new-password min-width">
+    <div class="new-password">
         <h1>Change Password</h1>
 
         <form method="POST" action="{{ route('auth.users.change-password.update', ['username' => $user->username]) }}">

@@ -52,14 +52,6 @@ a {
     }
 }
 
-.min-width {
-    width: 75%;
-    margin: 0 auto;
-    @media (max-width: 576px) {
-        width: 100%;
-    }
-}
-
 .home {
     .cover {
         margin: 3rem 0;

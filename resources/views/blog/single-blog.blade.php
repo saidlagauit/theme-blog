@@ -5,7 +5,7 @@
 @section('keywords', $post->keywords)
 
 @section('content')
-    <div class="single-blog min-width">
+    <div class="single-blog">
 
         @auth
 

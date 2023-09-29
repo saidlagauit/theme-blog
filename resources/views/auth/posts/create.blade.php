@@ -6,7 +6,7 @@
 
 @section('content')
 
-    <div class="create min-width">
+    <div class="create">
         <form method="POST" action="{{ route('auth.posts.create') }}" enctype="multipart/form-data" autocomplete="off">
             @csrf
 

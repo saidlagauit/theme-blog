@@ -5,7 +5,7 @@
 @section('keywords', $keywords)
 
 @section('content')
-    <div class="home min-width">
+    <div class="home">
 
         <div class="cover">
             <h1 class="cover-title text-capitalize">{{ $title }}</h1>

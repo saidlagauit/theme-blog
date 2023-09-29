@@ -6,7 +6,7 @@
 
 @section('content')
 
-    <div class="register-new min-width mt-3">
+    <div class="register-new mt-3">
         <h1>Register</h1>
         <form method="POST" action="{{ route('auth.register') }}" autocomplete="off">
             @csrf
