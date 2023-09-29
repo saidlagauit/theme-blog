@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -85,6 +86,33 @@ class UserController extends Controller
         ]);
 
         return redirect()->back()->with('success', 'Profile updated successfully.');
+    }
+
+    public function changePasswordForm($username)
+    {
+        $user = User::where('username', $username)->firstOrFail();
+
+        return view('auth.users.change-password', compact('user'));
+    }
+
+    public function changePassword(Request $request, $username)
+    {
+        $user = User::where('username', $username)->firstOrFail();
+
+        $request->validate([
+            'current_password' => 'required',
+            'new_password' => 'required|string|min:6|confirmed',
+        ]);
+
+        if (!Hash::check($request->current_password, $user->password)) {
+            return redirect()->route('auth.users.change-password', $user->username)->with('error', 'Current password is incorrect.');
+        }
+
+        $user->update([
+            'password' => Hash::make($request->new_password),
+        ]);
+
+        return redirect()->route('auth.users.profile', $user->username)->with('success', 'Password changed successfully.');
     }
 
     public function logout()

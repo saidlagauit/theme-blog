@@ -11,8 +11,10 @@
         <p>Username: {{ $user->username }}</p>
         <p>Name: {{ $user->name }}</p>
         <p>Email: {{ $user->email }}</p>
-        <a href="{{ route('auth.users.edit', ['username' => $user->username]) }}" class="btn btn-primary">Edit Profile</a>
-
+        <div class="btn-action">
+            <a href="{{ route('auth.users.edit', ['username' => $user->username]) }}" class="btn btn-success">Edit Profile</a>
+            <a href="{{ route('auth.users.change-password', ['username' => $user->username]) }}" class="btn btn-info">Change Password</a>
+        </div>
     </div>
 
 @endsection

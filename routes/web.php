@@ -38,6 +38,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/profile/{username}', [UserController::class, 'profile'])->name('auth.users.profile');
     Route::get('/profile/{username}/edit', [UserController::class, 'edit'])->name('auth.users.edit');
     Route::put('/profile/{username}/update', [UserController::class, 'update'])->name('auth.users.update');
+    Route::get('/profile/{username}/change-password', [UserController::class, 'changePasswordForm'])->name('auth.users.change-password');
+    Route::post('/profile/{username}/change-password', [UserController::class, 'changePassword'])->name('auth.users.change-password.update');
 
     Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 });
