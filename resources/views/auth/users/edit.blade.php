@@ -6,11 +6,15 @@
 
 @section('content')
 
-    <div class="edit-profile">
+    <div class="edit-profile min-width">
         <h1>Edit Profile</h1>
-        <form method="POST" action="{{ route('auth.users.update', ['username' => $user->username]) }}">
+        <form method="POST" action="{{ route('auth.users.update', ['username' => $user->username]) }}" enctype="multipart/form-data" autocomplete="off">
             @csrf
             @method('PUT')
+            <div class="form-group">
+                <label for="imgAvatar">Avatar</label>
+                <input type="file" class="form-control" id="imgAvatar" name="imgAvatar" accept="image/*">
+            </div>
             <div class="form-group">
                 <label for="username">Username</label>
                 <input type="text" class="form-control" id="username" name="username" value="{{ $user->username }}">

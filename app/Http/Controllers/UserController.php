@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
@@ -68,7 +69,15 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users,email,' . $user->id,
+            'imgAvatar' => 'image|mimes:jpeg,png,jpg,gif|max:2048|dimensions:min_width=512,min_height=512',
         ]);
+
+        if ($request->hasFile('imgAvatar')) {
+            $imgAvatar = $request->file('imgAvatar');
+            $imgAvatarName = Str::random(20) . '.' . $imgAvatar->getClientOriginalExtension();
+            $imgAvatar->storeAs('public/avatars', $imgAvatarName);
+            $user->update(['avatar' => 'avatars/' . $imgAvatarName]);
+        }
 
         $user->update([
             'name' => $request->name,

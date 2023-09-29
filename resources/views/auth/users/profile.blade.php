@@ -6,7 +6,7 @@
 
 @section('content')
 
-    <div class="profile">
+    <div class="profile min-width">
         <h1>Profile</h1>
         <p>Username: {{ $user->username }}</p>
         <p>Name: {{ $user->name }}</p>
