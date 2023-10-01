@@ -111,7 +111,7 @@
                 @endif
             </div>
             <div class="col-md-4">
-                <div class="about-me bg-body-tertiary">
+                <div class="about-me bg-body-tertiary rounded">
                     <h2>About Me</h2>
                     <strong>{{ $me->name }}</strong>
                     <p>{{ $me->bio }}</p>
