@@ -71,6 +71,9 @@ class UserController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users,email,' . $user->id,
             'imgAvatar' => 'image|mimes:jpeg,png,jpg,gif|max:2048|dimensions:min_width=512,min_height=512',
+            'bio' => 'nullable',
+            'link_twitter' => 'nullable',
+            'link_github' => 'nullable',
         ]);
 
         if ($request->hasFile('imgAvatar')) {
@@ -83,6 +86,9 @@ class UserController extends Controller
         $user->update([
             'name' => $request->name,
             'email' => $request->email,
+            'bio' => $request->bio,
+            'link_twitter' => $request->link_twitter,
+            'link_github' => $request->link_github,
         ]);
 
         return redirect()->back()->with('success', 'Profile updated successfully.');

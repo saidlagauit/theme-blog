@@ -27,6 +27,18 @@
                 <label for="email">Email</label>
                 <input type="email" class="form-control" id="email" name="email" value="{{ $user->email }}">
             </div>
+            <div class="form-group">
+                <label for="bio">Bio</label>
+                <textarea class="form-control" id="bio" name="bio">{{ $user->bio }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="link_twitter">Twitter Profile</label>
+                <input type="text" class="form-control" id="link_twitter" name="link_twitter" value="{{ $user->link_twitter }}">
+            </div>
+            <div class="form-group">
+                <label for="link_github">GitHub Profile</label>
+                <input type="text" class="form-control" id="link_github" name="link_github" value="{{ $user->link_github }}">
+            </div>
             <button type="submit" class="btn btn-primary my-3">Update Profile</button>
         </form>
     </div>
