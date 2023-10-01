@@ -12065,6 +12065,10 @@ a {
   }
 }
 
+.create {
+  padding: 1rem 0;
+}
+
 .btn-action {
   display: flex;
   align-items: center;
