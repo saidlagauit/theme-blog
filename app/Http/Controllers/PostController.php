@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\Post;
+use App\Models\User;
 
 class PostController extends Controller
 {
@@ -50,6 +51,9 @@ class PostController extends Controller
 
     public function show($slug)
     {
+
+        $me = User::first();
+
         $post = Post::where('slug', $slug)->firstOrFail();
 
         $approvedComments = $post->comments()->where('approved', true)->get();
@@ -57,7 +61,7 @@ class PostController extends Controller
         $previousPost = Post::where('created_at', '<', $post->created_at)->orderBy('created_at', 'desc')->first();
         $nextPost = Post::where('created_at', '>', $post->created_at)->orderBy('created_at', 'asc')->first();
 
-        return view('blog.single-blog', compact('post', 'approvedComments', 'previousPost', 'nextPost'));
+        return view('blog.single-blog', compact('post', 'approvedComments', 'previousPost', 'nextPost', 'me'));
     }
 
     public function edit($id)

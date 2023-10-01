@@ -12033,6 +12033,15 @@ a {
 .single-blog .comments .comment p {
   margin: 0;
 }
+.single-blog .about-me {
+  padding: 1.2rem;
+  margin-top: 0.5rem;
+}
+@media (max-width: 576px) {
+  .single-blog .about-me {
+    margin: 0;
+  }
+}
 
 .home .cover {
   margin: 3rem 0;

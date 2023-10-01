@@ -50,6 +50,13 @@ a {
         }
 
     }
+    .about-me {
+        padding: 1.2rem;
+        margin-top: 0.5rem;
+        @media (max-width: 576px) {
+            margin: 0;
+        }
+    }
 }
 
 .home {
