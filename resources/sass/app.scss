@@ -93,4 +93,16 @@ a {
     padding: 1rem 0;
 }
 
+.CodeMirror {
+    background-color: var(--bs-body-bg);
+    color: var(--bs-body-color);
+}
 
+.editor-toolbar a {
+    color: var(--bs-body-color) !important;
+}
+
+.editor-toolbar a.active,
+.editor-toolbar a:hover {
+    background: none;
+}

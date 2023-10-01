@@ -13,7 +13,7 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary text-capitalize">
         <div class="container">
             <a class="navbar-brand" href="{{ route('home') }}">Blog Theme</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#myNavbar"
@@ -22,7 +22,7 @@
             </button>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Writing</a></li>
                     @auth
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -31,12 +31,11 @@
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end">
                                 <li><a href="{{ route('auth.users.profile', Auth::user()->username) }}" class="dropdown-item">Profile</a></li>
+                                <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="{{ route('auth.posts.create') }}">New Post</a></li>
                                 <li><a class="dropdown-item" href="{{ route('auth.posts.index') }}">Manage Posts</a></li>
                                 <li><a class="dropdown-item" href="{{ route('auth.posts.comments') }}">Manage Comments</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
+                                <li><hr class="dropdown-divider"></li>
                                 <li>
                                     <form method="POST" action="{{ route('logout') }}">
                                         @csrf
