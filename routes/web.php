@@ -28,12 +28,12 @@ Route::middleware(['auth'])->group(function () {
     Route::patch('/comments/{comment}/unapprove', [CommentController::class, 'unapprove'])->name('auth.posts.comments.unapprove');
     Route::delete('/comments', [CommentController::class, 'destroy'])->name('auth.posts.comments.destroy');
 
-    Route::get('/create', [PostController::class, 'create'])->name('auth.posts.create');
-    Route::post('/create', [PostController::class, 'store'])->name('auth.posts.create');
+    Route::get('/posts/create', [PostController::class, 'create'])->name('auth.posts.create');
+    Route::post('/posts/create', [PostController::class, 'store'])->name('auth.posts.create');
 
-    Route::get('/edit/{id}', [PostController::class, 'edit'])->name('auth.posts.edit');
-    Route::delete('/delete/{id}', [PostController::class, 'destroy'])->name('auth.posts.destroy');
-    Route::put('/update/{id}', [PostController::class, 'update'])->name('auth.posts.update');
+    Route::get('/blog/{id}/edit', [PostController::class, 'edit'])->name('auth.posts.edit');
+    Route::delete('/blog/{id}/delete', [PostController::class, 'destroy'])->name('auth.posts.destroy');
+    Route::put('/blog/{id}/update', [PostController::class, 'update'])->name('auth.posts.update');
 
     Route::get('/profile/{username}', [UserController::class, 'profile'])->name('auth.users.profile');
     Route::get('/profile/{username}/edit', [UserController::class, 'edit'])->name('auth.users.edit');
