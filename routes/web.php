@@ -9,9 +9,7 @@ use App\Http\Controllers\CommentController;
 Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('/blog/{slug}', [PostController::class, 'show'])->name('blog.single-blog');
 Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
-Route::get('/404', function () {
-    return view('errors.404');
-});
+Route::get('/404', function () { return view('errors.404'); });
 
 Route::middleware(['guest'])->group(function () {
     Route::get('/login', [UserController::class, 'loginForm'])->name('auth.login');
@@ -21,26 +19,24 @@ Route::middleware(['guest'])->group(function () {
 });
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/posts', [PostController::class, 'index'])->name('auth.posts.index');
 
-    Route::get('/posts/comments', [CommentController::class, 'index'])->name('auth.posts.comments');
+    Route::get('/dashboard/posts', [PostController::class, 'index'])->name('auth.posts.index');
+    Route::get('/dashboard/posts/create', [PostController::class, 'create'])->name('auth.posts.create');
+    Route::post('/dashboard/posts/create', [PostController::class, 'store'])->name('auth.posts.create');
+    Route::get('/dashboard/posts/{id}/edit', [PostController::class, 'edit'])->name('auth.posts.edit');
+    Route::delete('/dashboard/posts/{id}/delete', [PostController::class, 'destroy'])->name('auth.posts.destroy');
+    Route::put('/dashboard/posts/{id}/update', [PostController::class, 'update'])->name('auth.posts.update');
 
-    Route::patch('/posts/comments/{comment}/approve', [CommentController::class, 'update'])->name('auth.posts.comments.approve');
-    Route::patch('/posts/comments/{comment}/unapprove', [CommentController::class, 'unapprove'])->name('auth.posts.comments.unapprove');
-    Route::delete('/posts/comments', [CommentController::class, 'destroy'])->name('auth.posts.comments.destroy');
+    Route::get('/dashboard/posts/comments', [CommentController::class, 'index'])->name('auth.posts.comments');
+    Route::patch('/dashboard/posts/comments/{comment}/approve', [CommentController::class, 'update'])->name('auth.posts.comments.approve');
+    Route::patch('/dashboard/posts/comments/{comment}/unapprove', [CommentController::class, 'unapprove'])->name('auth.posts.comments.unapprove');
+    Route::delete('/dashboard/posts/comments', [CommentController::class, 'destroy'])->name('auth.posts.comments.destroy');
 
-    Route::get('/posts/create', [PostController::class, 'create'])->name('auth.posts.create');
-    Route::post('/posts/create', [PostController::class, 'store'])->name('auth.posts.create');
-
-    Route::get('/posts/{id}/edit', [PostController::class, 'edit'])->name('auth.posts.edit');
-    Route::delete('/posts/{id}/delete', [PostController::class, 'destroy'])->name('auth.posts.destroy');
-    Route::put('/posts/{id}/update', [PostController::class, 'update'])->name('auth.posts.update');
-
-    Route::get('/profile/{username}', [UserController::class, 'profile'])->name('auth.users.profile');
-    Route::get('/profile/{username}/edit', [UserController::class, 'edit'])->name('auth.users.edit');
-    Route::put('/profile/{username}/update', [UserController::class, 'update'])->name('auth.users.update');
-    Route::get('/profile/{username}/change-password', [UserController::class, 'changePasswordForm'])->name('auth.users.change-password');
-    Route::post('/profile/{username}/change-password', [UserController::class, 'changePassword'])->name('auth.users.change-password.update');
+    Route::get('/dashboard/profile/{username}', [UserController::class, 'profile'])->name('auth.users.profile');
+    Route::get('/dashboard/profile/{username}/edit', [UserController::class, 'edit'])->name('auth.users.edit');
+    Route::put('/dashboard/profile/{username}/update', [UserController::class, 'update'])->name('auth.users.update');
+    Route::get('/dashboard/profile/{username}/change-password', [UserController::class, 'changePasswordForm'])->name('auth.users.change-password');
+    Route::post('/dashboard/profile/{username}/change-password', [UserController::class, 'changePassword'])->name('auth.users.change-password.update');
 
     Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 });

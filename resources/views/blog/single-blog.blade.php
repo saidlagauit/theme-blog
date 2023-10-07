@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', $post->title . ' | Blog Theme')
+@section('title', 'Blog Theme | ' . $post->title)
 @section('meta_description', $post->meta_description)
 @section('keywords', $post->keywords)
 
@@ -43,9 +43,7 @@
                                 @if ($comment->approved == 1)
                                     <div class="comment border rounded">
                                         <p>{{ $comment->comment }}</p>
-                                        <p>{{ $comment->name }} <span class="text-muted">Posted on
-                                                {{ $comment->created_at->format('F d, Y') }}</span>
-                                        </p>
+                                        <p>{{ $comment->name }} <span class="text-muted">Posted on {{ $comment->created_at->format('F d, Y') }}</span></p>
                                     </div>
                                 @endif
                             </li>
@@ -116,8 +114,8 @@
                     <strong>{{ $me->name }}</strong>
                     <p>{{ $me->bio }}</p>
                     <div class="about-me-contact">
-                        <a href="https://x.com/{{ $me->link_twitter }}" target="_blank" ><i class="fa-brands fa-x-twitter"></i></a>
-                        <a href="https://github.com/{{ $me->link_github }}" target="_blank" ><i class="fa-brands fa-github"></i></a>
+                        <a class="text-bg-dark p-2 rounded" href="https://x.com/{{ $me->link_twitter }}" target="_blank" aria-label="{{ $me->name }} On Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a class="text-bg-dark p-2 rounded" href="https://github.com/{{ $me->link_github }}" target="_blank" aria-label="{{ $me->name }} On Github"><i class="fa-brands fa-github"></i></a>
 
                     </div>
 

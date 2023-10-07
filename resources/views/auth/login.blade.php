@@ -6,7 +6,7 @@
 
 @section('content')
 
-    <div class="login mt-3">
+    <div class="login mt-3 col-md-6 mx-auto">
         <h1>Login</h1>
         <form method="POST" action="{{ route('auth.login') }}" autocomplete="off">
             @csrf
