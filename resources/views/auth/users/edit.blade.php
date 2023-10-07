@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.dashboard')
 
 @section('title', 'Blog Theme | Edit Profile')
 @section('meta_description', '')
 @section('keywords', '')
 
-@section('content')
+@section('dashboard-content')
 
     <div class="edit-profile">
         <h1>Edit Profile</h1>

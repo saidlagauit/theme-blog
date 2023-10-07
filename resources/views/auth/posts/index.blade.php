@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.dashboard')
 
 @section('title', 'Blog Theme | Manage Posts')
 @section('meta_description', '')
 @section('keywords', '')
 
-@section('content')
+@section('dashboard-content')
 
     <div class="posts-edit">
         <h1>Manage Posts <a class="btn btn-primary" href="{{ route('auth.posts.create') }}">Add New</a></h1>

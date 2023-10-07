@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.dashboard')
 
 @section('title', 'Blog Theme | Change Password')
 @section('meta_description', '')
 @section('keywords', '')
 
-@section('content')
+@section('dashboard-content')
     <div class="new-password">
         <h1>Change Password</h1>
 

@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.dashboard')
 
 @section('title', 'Blog Theme | Manage Comments')
 @section('meta_description', '')
 @section('keywords', '')
 
-@section('content')
+@section('dashboard-content')
     <div class="manage-comments">
         <h1>Manage Comments</h1>
         <div class="table-responsive">

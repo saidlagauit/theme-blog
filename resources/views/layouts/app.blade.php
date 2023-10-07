@@ -32,9 +32,7 @@
                             <ul class="dropdown-menu dropdown-menu-end">
                                 <li><a href="{{ route('auth.users.profile', Auth::user()->username) }}" class="dropdown-item">Profile</a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="{{ route('auth.posts.create') }}">New Post</a></li>
-                                <li><a class="dropdown-item" href="{{ route('auth.posts.index') }}">Manage Posts</a></li>
-                                <li><a class="dropdown-item" href="{{ route('auth.posts.comments') }}">Manage Comments</a></li>
+                                <li><a class="dropdown-item" href="#">Dashboard</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li>
                                     <form method="POST" action="{{ route('logout') }}">

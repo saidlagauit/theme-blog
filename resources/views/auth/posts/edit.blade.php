@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.dashboard')
 
 @section('title', 'Blog Theme | Edit')
 @section('meta_description', '')
 @section('keywords', '')
 
-@section('content')
+@section('dashboard-content')
 
     <div class="edit-post">
         <form method="POST" action="{{ route('auth.posts.update', ['id' => $post->id]) }}" enctype="multipart/form-data"

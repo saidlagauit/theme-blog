@@ -27,10 +27,10 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/dashboard/posts/{id}/delete', [PostController::class, 'destroy'])->name('auth.posts.destroy');
     Route::put('/dashboard/posts/{id}/update', [PostController::class, 'update'])->name('auth.posts.update');
 
-    Route::get('/dashboard/posts/comments', [CommentController::class, 'index'])->name('auth.posts.comments');
-    Route::patch('/dashboard/posts/comments/{comment}/approve', [CommentController::class, 'update'])->name('auth.posts.comments.approve');
-    Route::patch('/dashboard/posts/comments/{comment}/unapprove', [CommentController::class, 'unapprove'])->name('auth.posts.comments.unapprove');
-    Route::delete('/dashboard/posts/comments', [CommentController::class, 'destroy'])->name('auth.posts.comments.destroy');
+    Route::get('/dashboard/comments', [CommentController::class, 'index'])->name('auth.posts.comments');
+    Route::patch('/dashboard/comments/{comment}/approve', [CommentController::class, 'update'])->name('auth.posts.comments.approve');
+    Route::patch('/dashboard/comments/{comment}/unapprove', [CommentController::class, 'unapprove'])->name('auth.posts.comments.unapprove');
+    Route::delete('/dashboard/comments', [CommentController::class, 'destroy'])->name('auth.posts.comments.destroy');
 
     Route::get('/dashboard/profile/{username}', [UserController::class, 'profile'])->name('auth.users.profile');
     Route::get('/dashboard/profile/{username}/edit', [UserController::class, 'edit'])->name('auth.users.edit');

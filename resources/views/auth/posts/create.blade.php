@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.dashboard')
 
 @section('title', 'Blog Theme | Add New Post')
 @section('meta_description', '')
 @section('keywords', '')
 
-@section('content')
+@section('dashboard-content')
 
     <div class="create">
         <form method="POST" action="{{ route('auth.posts.create') }}" enctype="multipart/form-data" autocomplete="off">
