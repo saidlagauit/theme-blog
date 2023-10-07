@@ -26,7 +26,7 @@ class PostController extends Controller
             'title' => 'required|string|max:255',
             'meta_description' => 'required|string|max:160',
             'keywords' => 'required|string',
-            'imgCover' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
+            'imgCover' => 'required|image|mimes:jpeg,png,jpg,webp|dimensions:min_width=1200,min_height=900|max:2048',
             'content' => 'required|string',
         ]);
 
