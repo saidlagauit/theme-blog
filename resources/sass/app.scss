@@ -13,7 +13,15 @@ a {
 .post {
     padding: 0.2rem;
     a {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         color: inherit;
+        @media (max-width: 576px) {
+            justify-content: space-around;
+            align-items: flex-start;
+            flex-direction: column;
+        }
     }
 }
 
@@ -29,7 +37,8 @@ a {
     }
     .single-blog-cover {
         width: 100%;
-        height: 20rem;
+        height: 19.5rem;
+        object-fit: cover;
     }
     .single-blog-content,
     .single-blog-title {
