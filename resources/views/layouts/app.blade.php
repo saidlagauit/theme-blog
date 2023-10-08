@@ -32,7 +32,7 @@
                             <ul class="dropdown-menu dropdown-menu-end">
                                 <li><a href="{{ route('auth.users.profile', Auth::user()->username) }}" class="dropdown-item">Profile</a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="{{ route('auth.posts.create') }}">New Post</a></li>
+                                <li><a class="dropdown-item" href="{{ route('auth.posts.dashboard') }}">Dashboard</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li>
                                     <form method="POST" action="{{ route('logout') }}">
@@ -73,7 +73,6 @@
     <footer class="footer bg-body-tertiary text-md-center py-2">
         <div class="container">
             <p>&copy; {{ date('Y') }} Blog Theme. All rights reserved.</p>
-            <p>Designed by <a href="https://x.com/said_lagauit">Said Lagauit</a></p>
         </div>
     </footer>
 

@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DashboardController;
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
@@ -21,6 +22,8 @@ Route::middleware(['guest'])->group(function () {
 });
 
 Route::middleware(['auth'])->group(function () {
+
+    Route::get('/dashboard', [DashboardController::class, 'dash'])->name('auth.posts.dashboard');
 
     Route::get('/dashboard/posts', [PostController::class, 'index'])->name('auth.posts.index');
     Route::get('/dashboard/posts/create', [PostController::class, 'create'])->name('auth.posts.create');
