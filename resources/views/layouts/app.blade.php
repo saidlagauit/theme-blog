@@ -70,6 +70,13 @@
 
     </div>
 
+    <footer class="footer bg-body-tertiary text-md-center py-2">
+        <div class="container">
+            <p>&copy; {{ date('Y') }} Blog Theme. All rights reserved.</p>
+            <p>Designed by <a href="https://x.com/said_lagauit">Said Lagauit</a></p>
+        </div>
+    </footer>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
     <script src="{{ asset('js/app.js') }}"></script>
