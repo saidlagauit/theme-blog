@@ -12039,9 +12039,11 @@ a {
 .single-blog .comments {
   padding: 1rem;
 }
+.single-blog .comments .reply,
 .single-blog .comments .comment {
   padding: 0.5rem;
 }
+.single-blog .comments .reply p,
 .single-blog .comments .comment p {
   margin: 0;
 }

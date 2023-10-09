@@ -11,11 +11,13 @@
                 @auth
 
                     <div class="single-blog-action text-bg-warning">
-                        <a href="{{ route('auth.posts.edit', ['id' => $post->id]) }}" class="btn btn-success"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
+                        <a href="{{ route('auth.posts.edit', ['id' => $post->id]) }}" class="btn btn-success"><i
+                                class="fa-solid fa-pen-to-square"></i> Edit</a>
                         <form method="POST" action="{{ route('auth.posts.destroy', ['id' => $post->id]) }}">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this post?')">
+                            <button type="submit" class="btn btn-danger"
+                                onclick="return confirm('Are you sure you want to delete this post?')">
                                 <i class="fa-solid fa-trash"></i> Delete
                             </button>
                         </form>
@@ -24,7 +26,8 @@
 
                 @endauth
 
-                <img src="{{ asset('storage/' . $post->imgCover) }}" alt="{{ $post->title }}" class="single-blog-cover" title="{{ $post->title }}">
+                <img src="{{ asset('storage/' . $post->imgCover) }}" alt="{{ $post->title }}" class="single-blog-cover"
+                    title="{{ $post->title }}">
 
                 <h2 class="single-blog-title">{{ $post->title }}</h2>
 
@@ -40,12 +43,34 @@
                     <ul class="list-unstyled">
                         @foreach ($post->comments as $comment)
                             <li class="mb-4">
-                                @if ($comment->approved == 1)
-                                    <div class="comment border rounded">
-                                        <p>{{ $comment->comment }}</p>
-                                        <p>{{ $comment->name }} <span class="text-muted">Posted on {{ $comment->created_at->format('F d, Y') }}</span></p>
-                                    </div>
-                                @endif
+                                <div class="comment border rounded">
+                                    <p>{{ $comment->comment }}</p>
+                                    <p>{{ $comment->name }} <span class="text-muted">Posted on {{ $comment->created_at->format('F d, Y') }}</span></p>
+                                </div>
+                                <ul class="list-unstyled ms-4 mt-2">
+                                    @foreach ($comment->replies as $reply)
+                                        <li>
+                                            <div class="reply border rounded">
+                                                <p>{{ $reply->reply_content }}</p>
+                                                <p>Admin <span class="text-muted">Posted on {{ $reply->created_at->format('F d, Y') }}</span></p>
+                                            </div>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                                @auth
+
+                                <form method="POST" action="{{ route('replies.store', $comment->id) }}">
+                                    @csrf
+                                        <div class="input-group my-2">
+                                            <input type="text" name="reply_content" class="form-control @error('reply_content') is-invalid @enderror" placeholder="Recipient's username">
+                                            <button type="submit" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i></button>
+                                        </div>
+                                        @error('reply_content')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </form>
+
+                                @endauth
                             </li>
                         @endforeach
                     </ul>
@@ -69,7 +94,8 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="name">Name *</label>
-                                    <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}">
+                                    <input type="text" class="form-control @error('name') is-invalid @enderror"
+                                        id="name" name="name" value="{{ old('name') }}">
                                     @error('name')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -78,7 +104,8 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="email">Email *</label>
-                                    <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email') }}">
+                                    <input type="email" class="form-control @error('email') is-invalid @enderror"
+                                        id="email" name="email" value="{{ old('email') }}">
                                     @error('email')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -95,7 +122,8 @@
                         @if ($previousPost)
                             <div class="previous-post">
                                 <span>Previous Post:</span>
-                                <a href="{{ route('blog.single-blog', $previousPost->slug) }}">{{ $previousPost->title }}</a>
+                                <a
+                                    href="{{ route('blog.single-blog', $previousPost->slug) }}">{{ $previousPost->title }}</a>
                             </div>
                         @endif
 
@@ -114,8 +142,11 @@
                     <strong>{{ $me->name }}</strong>
                     <p>{{ $me->bio }}</p>
                     <div class="about-me-contact">
-                        <a class="text-bg-dark p-2 rounded" href="https://x.com/{{ $me->link_twitter }}" target="_blank" aria-label="{{ $me->name }} On Twitter"><i class="fa-brands fa-x-twitter"></i></a>
-                        <a class="text-bg-dark p-2 rounded" href="https://github.com/{{ $me->link_github }}" target="_blank" aria-label="{{ $me->name }} On Github"><i class="fa-brands fa-github"></i></a>
+                        <a class="text-bg-dark p-2 rounded" href="https://x.com/{{ $me->link_twitter }}" target="_blank"
+                            aria-label="{{ $me->name }} On Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a class="text-bg-dark p-2 rounded" href="https://github.com/{{ $me->link_github }}"
+                            target="_blank" aria-label="{{ $me->name }} On Github"><i
+                                class="fa-brands fa-github"></i></a>
 
                     </div>
 

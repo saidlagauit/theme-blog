@@ -7,6 +7,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ReplyController;
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
@@ -36,6 +37,8 @@ Route::middleware(['auth'])->group(function () {
     Route::patch('/dashboard/comments/{comment}/approve', [CommentController::class, 'update'])->name('auth.posts.comments.approve');
     Route::patch('/dashboard/comments/{comment}/unapprove', [CommentController::class, 'unapprove'])->name('auth.posts.comments.unapprove');
     Route::delete('/dashboard/comments', [CommentController::class, 'destroy'])->name('auth.posts.comments.destroy');
+
+    Route::post('/comments/{commentId}/replies', [ReplyController::class, 'store'])->name('replies.store');
 
     Route::get('/dashboard/profile/{username}', [UserController::class, 'profile'])->name('auth.users.profile');
     Route::get('/dashboard/profile/{username}/edit', [UserController::class, 'edit'])->name('auth.users.edit');
