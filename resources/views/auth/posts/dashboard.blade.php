@@ -9,7 +9,7 @@
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Total Posts</h5>
+                        <h5 class="card-title"><i class="fa-solid fa-file-word"></i> Posts</h5>
                         <p class="card-text">{{ $totalPosts }}</p>
                     </div>
                 </div>
@@ -17,7 +17,7 @@
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Total Comments</h5>
+                        <h5 class="card-title"><i class="fa-solid fa-comments"></i> Comments</h5>
                         <p class="card-text">{{ $totalComments }}</p>
                     </div>
                 </div>
@@ -25,7 +25,7 @@
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Total Messages</h5>
+                        <h5 class="card-title"><i class="fa-solid fa-envelope"></i> Messages</h5>
                         <p class="card-text">{{ $totalMessages }}</p>
                     </div>
                 </div>
