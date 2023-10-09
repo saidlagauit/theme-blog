@@ -47,12 +47,19 @@
                                     <p>{{ $comment->comment }}</p>
                                     <p>{{ $comment->name }} <span class="text-muted">Posted on {{ $comment->created_at->format('F d, Y') }}</span></p>
                                 </div>
-                                <ul class="list-unstyled ms-4 mt-2">
+                                <ul class="list-unstyled ms-4">
                                     @foreach ($comment->replies as $reply)
-                                        <li>
+                                        <li class=" mt-2">
                                             <div class="reply border rounded">
                                                 <p>{{ $reply->reply_content }}</p>
                                                 <p>Admin <span class="text-muted">Posted on {{ $reply->created_at->format('F d, Y') }}</span></p>
+                                                @auth
+                                                    <form method="POST" action="{{ route('replies.destroy', [$comment->id, $reply->id]) }}">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+                                                    </form>
+                                                @endauth
                                             </div>
                                         </li>
                                     @endforeach

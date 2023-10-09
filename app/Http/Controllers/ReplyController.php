@@ -25,4 +25,22 @@ class ReplyController extends Controller
 
         return back()->with('success', 'Reply added successfully.');
     }
+
+    public function destroy($commentId, $replyId)
+    {
+        try {
+            $comment = Comment::findOrFail($commentId);
+
+            $reply = $comment->replies()->findOrFail($replyId);
+
+            $reply->delete();
+
+            return back()->with('success', 'Reply deleted successfully.');
+
+        } catch (\Exception $e) {
+
+            return back()->with('error', 'Error deleting reply: ' . $e->getMessage());
+
+        }
+    }
 }

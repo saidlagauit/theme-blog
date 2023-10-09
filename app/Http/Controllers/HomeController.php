@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     public function home()
     {
-        $latestPosts = Post::orderBy('created_at', 'desc')->take(10)->get();
+        $latestPosts = Post::orderBy('created_at', 'desc')->take(30)->get();
 
         $data = [
             'title' => "Hi, my name is Said Lagauit",

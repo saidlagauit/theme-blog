@@ -39,6 +39,7 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/dashboard/comments', [CommentController::class, 'destroy'])->name('auth.posts.comments.destroy');
 
     Route::post('/comments/{commentId}/replies', [ReplyController::class, 'store'])->name('replies.store');
+    Route::delete('/comments/{commentId}/replies/{replyId}', [ReplyController::class, 'destroy'])->name('replies.destroy');
 
     Route::get('/dashboard/profile/{username}', [UserController::class, 'profile'])->name('auth.users.profile');
     Route::get('/dashboard/profile/{username}/edit', [UserController::class, 'edit'])->name('auth.users.edit');

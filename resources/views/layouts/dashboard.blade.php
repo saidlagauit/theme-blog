@@ -8,7 +8,7 @@
             <li class="nav-item"><a class="nav-link" href="{{ route('auth.posts.comments') }}">Comments</a></li>
 
         </ul>
-        <div class="main w-100">
+        <div class="main p-1 w-100">
             @yield('dashboard-content')
         </div>
     </div>
