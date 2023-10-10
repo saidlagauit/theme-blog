@@ -69,7 +69,7 @@
                                 <form method="POST" action="{{ route('replies.store', $comment->id) }}">
                                     @csrf
                                         <div class="input-group my-2">
-                                            <input type="text" name="reply_content" class="form-control @error('reply_content') is-invalid @enderror" placeholder="Recipient's username">
+                                            <input type="text" name="reply_content" class="form-control @error('reply_content') is-invalid @enderror" placeholder="Write a public reply…">
                                             <button type="submit" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i></button>
                                         </div>
                                         @error('reply_content')
