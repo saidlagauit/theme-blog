@@ -1,14 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="dashboard d-flex">
-        <ul class="nav flex-column bg-body-tertiary">
-            <li class="nav-item"><a class="nav-link" href="{{ route('auth.posts.dashboard') }}">Dashboard</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ route('auth.posts.index') }}">Posts</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ route('auth.posts.comments') }}">Comments</a></li>
+    <div class="dash-centent">
+        <div class="navigation">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><a href="{{ route('auth.posts.dashboard') }}"><i class="fa-solid fa-house"></i> Dashboard</a></li>
+                <li class="list-group-item"><a href="{{ route('auth.posts.index') }}"><i class="fa-solid fa-thumbtack"></i> Posts</a></li>
+                <li class="list-group-item"><a href="{{ route('auth.posts.comments') }}"><i class="fa-solid fa-comments"></i> Comments</a></li>
+                <li class="list-group-item"><a href="{{ route('auth.posts.messages') }}"><i class="fa-solid fa-envelope"></i> Messages</a></li>
+            </ul>
+        </div>
 
-        </ul>
-        <div class="main p-1 w-100">
+        <div class="main">
             @yield('dashboard-content')
         </div>
     </div>

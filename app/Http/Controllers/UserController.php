@@ -29,7 +29,7 @@ class UserController extends Controller
             return redirect()->route('home');
         }
 
-        return back()->withErrors(['email' => 'Invalid credentials'])->withInput();
+        return back()->with('error', 'Invalid credentials');
     }
 
     public function register(Request $request)

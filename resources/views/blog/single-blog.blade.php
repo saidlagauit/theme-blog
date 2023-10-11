@@ -42,7 +42,7 @@
                     <h2>Comments</h2>
                     <ul class="list-unstyled">
                         @foreach ($post->comments as $comment)
-                            <li class="mb-4">
+                            <li class="mb-3">
                                 <div class="comment border rounded">
                                     <p>{{ $comment->comment }}</p>
                                     <p>{{ $comment->name }} <span class="text-muted">Posted on {{ $comment->created_at->format('F d, Y') }}</span></p>
@@ -50,7 +50,7 @@
                                 <ul class="list-unstyled ms-4">
                                     @foreach ($comment->replies as $reply)
                                         <li class=" mt-2">
-                                            <div class="reply border rounded">
+                                            <div class="reply border border-top-0">
                                                 <p>{{ $reply->reply_content }}</p>
                                                 <p>Admin <span class="text-muted">Posted on {{ $reply->created_at->format('F d, Y') }}</span></p>
                                                 @auth

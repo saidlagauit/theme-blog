@@ -12110,3 +12110,11 @@ a {
 .table-responsive {
   font-size: 1rem;
 }
+
+.dash-centent {
+  display: flex;
+  justify-content: space-between;
+}
+.dash-centent .main {
+  width: 86%;
+}

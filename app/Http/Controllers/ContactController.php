@@ -6,6 +6,13 @@ use App\Models\Contact;
 
 class ContactController extends Controller
 {
+
+    public function msgViews()
+    {
+        $messages = Contact::latest()->get();
+        return view('auth.posts.messages', compact('messages'));
+    }
+
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -18,5 +25,19 @@ class ContactController extends Controller
         Contact::create($validatedData);
 
         return back()->with('success', 'Your message has been sent successfully!');
+    }
+
+    public function show($id)
+    {
+        $message = Contact::findOrFail($id);
+        return view('auth.posts.message-details', compact('message'));
+    }
+
+    public function delete(Request $request, $id)
+    {
+        $message = Contact::findOrFail($id);
+        $message->delete();
+
+        return back()->with('success', 'Message deleted successfully');
     }
 }

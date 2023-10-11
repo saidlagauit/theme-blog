@@ -1,6 +1,8 @@
 @extends('layouts.dashboard')
 
-@section('title', 'Dashboard')
+@section('title', 'Blog Theme | Dashboard')
+@section('meta_description', '')
+@section('keywords', '')
 
 @section('dashboard-content')
     <div class="dash">
@@ -9,7 +11,7 @@
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title"><i class="fa-solid fa-file-word"></i> Posts</h5>
+                        <h5 class="card-title"><i class="fa-solid fa-thumbtack"></i> Posts</h5>
                         <p class="card-text">{{ $totalPosts }}</p>
                     </div>
                 </div>
