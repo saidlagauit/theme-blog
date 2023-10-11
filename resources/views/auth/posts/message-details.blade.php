@@ -13,7 +13,7 @@
         <p><strong>Phone:</strong> {{ $message->phone }}</p>
         <p><strong>Created At:</strong> {{ $message->created_at->format('Y-m-d H:i:s') }}</p>
         <p><strong>Message:</strong> {{ $message->message }}</p>
-        <a href="{{ route('auth.posts.messages') }}" class="btn btn-secondary">Back to Messages</a>
+        <a href="{{ route('auth.posts.messages') }}" class="btn btn-secondary my-3">Back to Messages</a>
 
     </div>
 

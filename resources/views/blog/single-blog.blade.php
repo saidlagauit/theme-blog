@@ -43,41 +43,44 @@
                     <ul class="list-unstyled">
                         @foreach ($post->comments as $comment)
                             <li class="mb-3">
-                                <div class="comment border rounded">
-                                    <p>{{ $comment->comment }}</p>
-                                    <p>{{ $comment->name }} <span class="text-muted">Posted on {{ $comment->created_at->format('F d, Y') }}</span></p>
-                                </div>
-                                <ul class="list-unstyled ms-4">
-                                    @foreach ($comment->replies as $reply)
-                                        <li class=" mt-2">
-                                            <div class="reply border border-top-0">
-                                                <p>{{ $reply->reply_content }}</p>
-                                                <p>Admin <span class="text-muted">Posted on {{ $reply->created_at->format('F d, Y') }}</span></p>
-                                                @auth
-                                                    <form method="POST" action="{{ route('replies.destroy', [$comment->id, $reply->id]) }}">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-                                                    </form>
-                                                @endauth
+                                @if ($comment->approved == 1)
+                                    <div class="comment border rounded">
+                                        <p>{{ $comment->comment }}</p>
+                                        <p>{{ $comment->name }} <span class="text-muted">Posted on {{ $comment->created_at->format('F d, Y') }}</span></p>
+                                    </div>
+                                    <ul class="list-unstyled ms-4">
+                                        @foreach ($comment->replies as $reply)
+                                            <li class=" mt-2">
+                                                <div class="reply border border-top-0">
+                                                    <p>{{ $reply->reply_content }}</p>
+                                                    <p>Admin <span class="text-muted">Posted on {{ $reply->created_at->format('F d, Y') }}</span></p>
+                                                    @auth
+                                                        <form method="POST" action="{{ route('replies.destroy', [$comment->id, $reply->id]) }}">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+                                                        </form>
+                                                    @endauth
+                                                </div>
+                                            </li>
+                                        @endforeach
+                                        @auth
+
+                                        <form method="POST" action="{{ route('replies.store', $comment->id) }}">
+                                            @csrf
+                                            <div class="input-group my-2">
+                                                <input type="text" name="reply_content" class="form-control @error('reply_content') is-invalid @enderror" placeholder="Write a public reply…">
+                                                <button type="submit" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i></button>
                                             </div>
-                                        </li>
-                                    @endforeach
-                                </ul>
-                                @auth
+                                            @error('reply_content')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
+                                        </form>
 
-                                <form method="POST" action="{{ route('replies.store', $comment->id) }}">
-                                    @csrf
-                                        <div class="input-group my-2">
-                                            <input type="text" name="reply_content" class="form-control @error('reply_content') is-invalid @enderror" placeholder="Write a public reply…">
-                                            <button type="submit" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i></button>
-                                        </div>
-                                        @error('reply_content')
-                                            <div class="invalid-feedback">{{ $message }}</div>
-                                        @enderror
-                                    </form>
+                                        @endauth
+                                    </ul>
 
-                                @endauth
+                                @endif
                             </li>
                         @endforeach
                     </ul>
@@ -129,8 +132,7 @@
                         @if ($previousPost)
                             <div class="previous-post">
                                 <span>Previous Post:</span>
-                                <a
-                                    href="{{ route('blog.single-blog', $previousPost->slug) }}">{{ $previousPost->title }}</a>
+                                <a href="{{ route('blog.single-blog', $previousPost->slug) }}">{{ $previousPost->title }}</a>
                             </div>
                         @endif
 
@@ -149,11 +151,8 @@
                     <strong>{{ $me->name }}</strong>
                     <p>{{ $me->bio }}</p>
                     <div class="about-me-contact">
-                        <a class="text-bg-dark p-2 rounded" href="https://x.com/{{ $me->link_twitter }}" target="_blank"
-                            aria-label="{{ $me->name }} On Twitter"><i class="fa-brands fa-x-twitter"></i></a>
-                        <a class="text-bg-dark p-2 rounded" href="https://github.com/{{ $me->link_github }}"
-                            target="_blank" aria-label="{{ $me->name }} On Github"><i
-                                class="fa-brands fa-github"></i></a>
+                        <a class="text-bg-dark p-2 rounded" href="https://x.com/{{ $me->link_twitter }}" target="_blank" aria-label="{{ $me->name }} On Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a class="text-bg-dark p-2 rounded" href="https://github.com/{{ $me->link_github }}" target="_blank" aria-label="{{ $me->name }} On Github"><i class="fa-brands fa-github"></i></a>
 
                     </div>
 
