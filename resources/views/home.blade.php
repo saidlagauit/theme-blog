@@ -12,7 +12,8 @@
             <p class="cover-disc">{{ $disc }}</p>
         </div>
 
-        <div class="posts bg-body-tertiary my-3">
+        <div class="posts bg-body-tertiary p-2 my-3">
+            <h2>Featured Articles</h2>
             <div class="list-post">
                 @foreach ($mostViewed as $post)
                     <div class="post border-bottom-0 border">
@@ -24,7 +25,7 @@
             </div>
         </div>
 
-        <div class="contact py-3">
+        <div class="contact bg-body-tertiary p-2 my-3">
 
             <h2>Write us a message.</h2>
             <form action="{{ route('contact.store') }}" method="post" autocomplete="off">
