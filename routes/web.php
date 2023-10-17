@@ -24,7 +24,7 @@ Route::middleware(['guest'])->group(function () {
 
 Route::middleware(['auth'])->group(function () {
 
-    Route::get('/dashboard', [DashboardController::class, 'dash'])->name('auth.posts.dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'dash'])->name('auth.dash.dashboard');
 
     Route::get('/dashboard/posts', [PostController::class, 'index'])->name('auth.posts.index');
     Route::get('/dashboard/posts/create', [PostController::class, 'create'])->name('auth.posts.create');
@@ -33,17 +33,17 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/dashboard/posts/{id}/delete', [PostController::class, 'destroy'])->name('auth.posts.destroy');
     Route::put('/dashboard/posts/{id}/update', [PostController::class, 'update'])->name('auth.posts.update');
 
-    Route::get('/dashboard/comments', [CommentController::class, 'index'])->name('auth.posts.comments');
-    Route::patch('/dashboard/comments/{comment}/approve', [CommentController::class, 'update'])->name('auth.posts.comments.approve');
-    Route::patch('/dashboard/comments/{comment}/unapprove', [CommentController::class, 'unapprove'])->name('auth.posts.comments.unapprove');
-    Route::delete('/dashboard/comments', [CommentController::class, 'destroy'])->name('auth.posts.comments.destroy');
+    Route::get('/dashboard/comments', [CommentController::class, 'index'])->name('auth.cmts.comments');
+    Route::patch('/dashboard/comments/{comment}/approve', [CommentController::class, 'update'])->name('auth.cmts.comments.approve');
+    Route::patch('/dashboard/comments/{comment}/unapprove', [CommentController::class, 'unapprove'])->name('auth.cmts.comments.unapprove');
+    Route::delete('/dashboard/comments/{id}/destroy', [CommentController::class, 'destroy'])->name('auth.cmts.comments.destroy');
 
     Route::post('/comments/{commentId}/replies', [ReplyController::class, 'store'])->name('replies.store');
     Route::delete('/comments/{commentId}/replies/{replyId}', [ReplyController::class, 'destroy'])->name('replies.destroy');
 
-    Route::get('/dashboard/messages', [ContactController::class, 'msgViews'])->name('auth.posts.messages');
-    Route::get('/dashboard/messages/{id}', [ContactController::class, 'show'])->name('auth.posts.message-details');
-    Route::delete('/dashboard/messages/{id}', [ContactController::class, 'delete'])->name('auth.posts.message-details.delete');
+    Route::get('/dashboard/messages', [ContactController::class, 'msgViews'])->name('auth.msgs.messages');
+    Route::get('/dashboard/messages/{id}', [ContactController::class, 'show'])->name('auth.msgs.message-details');
+    Route::delete('/dashboard/messages/{id}', [ContactController::class, 'delete'])->name('auth.msgs.message-details.delete');
 
 
     Route::get('/dashboard/profile/{username}', [UserController::class, 'profile'])->name('auth.users.profile');

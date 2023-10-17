@@ -26,12 +26,12 @@
                             <td>{{ $msg->phone }}</td>
                             <td>{{ $msg->created_at->format('Y-m-d H:i:s') }}</td>
                             <td class="btn-action">
-                                <form method="POST" action="{{ route('auth.posts.message-details.delete', $msg->id) }}">
+                                <form method="POST" action="{{ route('auth.msgs.message-details.delete', $msg->id) }}">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                                 </form>
-                                <a href="{{ route('auth.posts.message-details', $msg->id) }}" class="btn btn-info"><i class="fa-solid fa-eye"></i></a>
+                                <a href="{{ route('auth.msgs.message-details', $msg->id) }}" class="btn btn-info"><i class="fa-solid fa-eye"></i></a>
                             </td>
                         </tr>
                     @endforeach

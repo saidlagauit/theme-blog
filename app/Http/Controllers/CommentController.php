@@ -12,7 +12,7 @@ class CommentController extends Controller
     public function index(Post $post)
     {
         $comments = Comment::orderBy('created_at', 'desc')->get();
-        return view('auth.posts.comments', compact('comments'));
+        return view('auth.cmts.comments', compact('comments'));
     }
 
     public function store(Request $request)
@@ -58,10 +58,12 @@ class CommentController extends Controller
         return redirect()->back()->with('info', 'Comment is already unapproved.');
     }
 
-    public function destroy(Comment $comment)
+    public function destroy($id)
     {
+        $comment = Comment::findOrFail($id);
         $comment->delete();
 
         return redirect()->back()->with('success', 'Comment deleted successfully.');
     }
+
 }

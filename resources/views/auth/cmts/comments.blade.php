@@ -28,23 +28,20 @@
                             <td>{{ $comment->created_at->format('Y-m-d H:i:s') }}</td>
                             <td class="btn-action">
                                 @if (!$comment->approved)
-                                    <form method="POST"
-                                        action="{{ route('auth.posts.comments.approve', ['comment' => $comment->id]) }}">
+                                    <form method="POST" action="{{ route('auth.cmts.comments.approve', ['comment' => $comment->id]) }}">
                                         @csrf
                                         @method('PATCH')
                                         <button type="submit" class="btn btn-success"><i class="fa-solid fa-circle-check"></i></button>
                                     </form>
                                 @else
-                                    <form method="POST"
-                                        action="{{ route('auth.posts.comments.unapprove', ['comment' => $comment->id]) }}">
+                                    <form method="POST" action="{{ route('auth.cmts.comments.unapprove', ['comment' => $comment->id]) }}">
                                         @csrf
                                         @method('PATCH')
                                         <button type="submit" class="btn btn-warning"><i class="fa-solid fa-circle-xmark"></i></button>
                                     </form>
                                 @endif
 
-                                <form method="POST"
-                                    action="{{ route('auth.posts.comments.destroy', ['comment' => $comment->id]) }}">
+                                <form method="POST" action="{{ route('auth.cmts.comments.destroy', ['id' => $comment->id]) }}">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>

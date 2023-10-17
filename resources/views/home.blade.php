@@ -32,7 +32,7 @@
                 <div class="row g-3">
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="full_name">Full name</label>
+                            <label for="full_name">Full name *</label>
                             <input type="text" id="full_name" class="form-control @error('full_name') is-invalid @enderror" name="full_name" value="{{ old('full_name') }}">
                             @error('full_name')<div class="invalid-feedback">{{ $message }}</div>@enderror
                         </div>

@@ -10,7 +10,7 @@ class ContactController extends Controller
     public function msgViews()
     {
         $messages = Contact::latest()->get();
-        return view('auth.posts.messages', compact('messages'));
+        return view('auth.msgs.messages', compact('messages'));
     }
 
     public function store(Request $request)
@@ -30,7 +30,7 @@ class ContactController extends Controller
     public function show($id)
     {
         $message = Contact::findOrFail($id);
-        return view('auth.posts.message-details', compact('message'));
+        return view('auth.msgs.message-details', compact('message'));
     }
 
     public function delete(Request $request, $id)

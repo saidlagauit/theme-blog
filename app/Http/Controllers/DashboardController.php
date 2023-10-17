@@ -15,6 +15,6 @@ class DashboardController extends Controller
         $totalComments = Comment::count();
         $totalMessages = Contact::count();
 
-        return view('auth.posts.dashboard', compact('totalPosts', 'totalComments', 'totalMessages'));
+        return view('auth.dash.dashboard', compact('totalPosts', 'totalComments', 'totalMessages'));
     }
 }
