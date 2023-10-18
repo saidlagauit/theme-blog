@@ -18,8 +18,8 @@ Route::get('/404', function () { return view('errors.404'); });
 Route::middleware(['guest'])->group(function () {
     Route::get('/login', [UserController::class, 'loginForm'])->name('auth.login');
     Route::post('/login', [UserController::class, 'login'])->name('auth.login');
-    Route::get('/register', [UserController::class, 'registerForm'])->name('auth.register');
-    Route::post('/register', [UserController::class, 'register'])->name('auth.register');
+    // Route::get('/register', [UserController::class, 'registerForm'])->name('auth.register');
+    // Route::post('/register', [UserController::class, 'register'])->name('auth.register');
 });
 
 Route::middleware(['auth'])->group(function () {

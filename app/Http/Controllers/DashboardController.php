@@ -15,6 +15,9 @@ class DashboardController extends Controller
         $totalComments = Comment::count();
         $totalMessages = Contact::count();
 
+        // $lastComments = Comment::orderBy('created_at', 'desc')->take(5)->get();
+        // $lastMessages = Contact::orderBy('created_at', 'desc')->take(5)->get();
+
         return view('auth.dash.dashboard', compact('totalPosts', 'totalComments', 'totalMessages'));
     }
 }

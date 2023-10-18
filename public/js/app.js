@@ -2074,13 +2074,9 @@ document.addEventListener("DOMContentLoaded", function () {
   textarea.addEventListener("input", function () {
     var currentChars = textarea.value.length;
     charCount.textContent = currentChars;
-
-    // Check if character count exceeds the limit
     if (currentChars > maxChars) {
       charCount.classList.add("text-danger");
       textarea.classList.add("border-danger");
-
-      // Trim the text to the maximum allowed characters
       textarea.value = textarea.value.slice(0, maxChars);
     } else {
       charCount.classList.remove("text-danger");
@@ -2092,11 +2088,14 @@ document.addEventListener("DOMContentLoaded", function () {
   setTimeout(function () {
     var _document$getElementB;
     (_document$getElementB = document.getElementById("msg-alert")) === null || _document$getElementB === void 0 || _document$getElementB.remove();
-  }, 2000);
+  }, 3000);
 
   //
-  var simplemde = new SimpleMDE({
-    element: document.getElementById("content")
+  var textareaIds = ["content", "bio"];
+  textareaIds.forEach(function (id) {
+    new SimpleMDE({
+      element: document.getElementById(id)
+    });
   });
 });
 

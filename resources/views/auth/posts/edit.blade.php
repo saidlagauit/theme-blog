@@ -7,20 +7,17 @@
 @section('dashboard-content')
 
     <div class="edit-post">
-        <form method="POST" action="{{ route('auth.posts.update', ['id' => $post->id]) }}" enctype="multipart/form-data"
-            autocomplete="off">
+        <form method="POST" action="{{ route('auth.posts.update', ['id' => $post->id]) }}" enctype="multipart/form-data" autocomplete="off">
             @csrf
             @method('PUT')
             <div class="row g-3">
                 <div class="col-md-4">
-                    <img src="{{ asset('storage/' . $post->imgCover) }}" alt="{{ $post->title }}" class="w-100"
-                        title="{{ $post->title }}">
+                    <img src="{{ asset('storage/' . $post->imgCover) }}" alt="{{ $post->title }}" class="w-100" title="{{ $post->title }}">
                 </div>
                 <div class="col-md-8">
                     <div class="form-group">
                         <label for="imgCover">Image Cover</label>
                         <input type="file" class="form-control" id="imgCover" name="imgCover" accept="image/*">
-
                     </div>
 
                     <div class="form-group">

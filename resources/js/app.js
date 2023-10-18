@@ -11,13 +11,9 @@ document.addEventListener("DOMContentLoaded", function () {
     textarea.addEventListener("input", function () {
         const currentChars = textarea.value.length;
         charCount.textContent = currentChars;
-
-        // Check if character count exceeds the limit
         if (currentChars > maxChars) {
             charCount.classList.add("text-danger");
             textarea.classList.add("border-danger");
-
-            // Trim the text to the maximum allowed characters
             textarea.value = textarea.value.slice(0, maxChars);
         } else {
             charCount.classList.remove("text-danger");
@@ -28,11 +24,11 @@ document.addEventListener("DOMContentLoaded", function () {
     //
     setTimeout(function () {
         document.getElementById("msg-alert")?.remove();
-    }, 2000);
+    }, 3000);
 
     //
-    var simplemde = new SimpleMDE({
-        element: document.getElementById("content"),
+    const textareaIds = ["content", "bio"];
+    textareaIds.forEach(function (id) {
+        new SimpleMDE({ element: document.getElementById(id) });
     });
-
 });
