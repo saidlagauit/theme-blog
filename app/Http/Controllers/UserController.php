@@ -16,10 +16,12 @@ class UserController extends Controller
         return view('auth.login');
     }
 
+    /*
     public function registerForm()
     {
         return view('auth.register');
     }
+    */
 
     public function login(Request $request)
     {
@@ -32,6 +34,7 @@ class UserController extends Controller
         return back()->with('error', 'Invalid credentials');
     }
 
+    /*
     public function register(Request $request)
     {
         $this->validate($request, [
@@ -50,6 +53,7 @@ class UserController extends Controller
 
         return redirect()->route('auth.login')->with('success', 'Registration successful. Please log in.');
     }
+    */
 
     public function profile($username)
     {
