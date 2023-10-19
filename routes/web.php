@@ -45,7 +45,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard/messages/{id}', [ContactController::class, 'show'])->name('auth.msgs.message-details');
     Route::delete('/dashboard/messages/{id}', [ContactController::class, 'delete'])->name('auth.msgs.message-details.delete');
 
-
     Route::get('/dashboard/profile/{username}', [UserController::class, 'profile'])->name('auth.users.profile');
     Route::get('/dashboard/profile/{username}/edit', [UserController::class, 'edit'])->name('auth.users.edit');
     Route::put('/dashboard/profile/{username}/update', [UserController::class, 'update'])->name('auth.users.update');
