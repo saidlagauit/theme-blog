@@ -12,7 +12,6 @@
             <table class="table table-bordered">
                 <thead class="table-light">
                     <tr>
-                        <th>#</th>
                         <th>Title</th>
                         <th><i class="fa-solid fa-comments"></i></th>
                         <th>Date</th>
@@ -23,7 +22,6 @@
 
                     @foreach ($posts as $post)
                         <tr>
-                            <td></td>
                             <td>{{ $post->title }}</td>
                             <td>{{ $post->comments_count }}</td>
                             <td>{{ $post->created_at }}</td>
