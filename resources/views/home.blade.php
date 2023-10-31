@@ -13,7 +13,7 @@
         </div>
 
         <div class="posts bg-body-tertiary p-2 my-3">
-            <h2>Featured Articles</h2>
+            <h2>Latest articles</h2>
             <div class="list-post">
                 @foreach ($mostViewed as $post)
                     <div class="post border-bottom-0 border">

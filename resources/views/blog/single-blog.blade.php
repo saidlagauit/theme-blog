@@ -25,7 +25,7 @@
                 <h2 class="single-blog-title">{{ $post->title }}</h2>
                 <span class="text-muted">Premiered on {{ $post->created_at->format('F d, Y') }}</span>
                 <div class="single-blog-content">{!! Parsedown::instance()->text($post->content) !!}</div>
-                
+
                 <div class="comments bg-body-tertiary rounded">
                     <h2>Comments</h2>
                     <ul class="list-unstyled">
@@ -112,13 +112,13 @@
                     <div class="post-navigation bg-body-tertiary my-2">
                         @if ($previousPost)
                             <div class="previous-post">
-                                <span>Previous Post:</span>
+                                <span><i class="fa-solid fa-backward"></i> previous Post : </span>
                                 <a href="{{ route('blog.single-blog', $previousPost->slug) }}">{{ $previousPost->title }}</a>
                             </div>
                         @endif
                         @if ($nextPost)
                             <div class="next-post">
-                                <span>Next Post:</span>
+                                <span><i class="fa-solid fa-forward"></i> next Post : </span>
                                 <a href="{{ route('blog.single-blog', $nextPost->slug) }}">{{ $nextPost->title }}</a>
                             </div>
                         @endif
