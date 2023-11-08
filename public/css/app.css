@@ -12028,9 +12028,14 @@ a {
   -o-object-fit: cover;
      object-fit: cover;
 }
-.single-blog .single-blog-content,
 .single-blog .single-blog-title {
   margin: 1rem 0;
+  font-size: 3rem;
+}
+@media (max-width: 576px) {
+  .single-blog .single-blog-title {
+    font-size: 1.8rem;
+  }
 }
 .single-blog .post-navigation {
   padding: 0.5rem;
@@ -12113,8 +12118,16 @@ a {
 
 .dash-centent {
   display: flex;
-  justify-content: space-between;
+  justify-content: stretch;
+  width: 100%;
+}
+.dash-centent .navigation {
+  min-width: 18rem;
+  max-width: 18rem;
+  transition: 0.5s;
 }
 .dash-centent .main {
-  width: 86%;
+  width: 100%;
+  min-height: 100vh;
+  transition: 0.6s;
 }

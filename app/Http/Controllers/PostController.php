@@ -98,6 +98,6 @@ class PostController extends Controller
     {
         $post = Post::findOrFail($id);
         $post->delete();
-        return redirect()->back()->with('success', 'Post deleted successfully');
+        return redirect()->route('auth.posts.index')->with('success', 'Post deleted successfully');
     }
 }

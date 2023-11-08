@@ -11,7 +11,7 @@
             </ul>
         </div>
 
-        <div class="main">
+        <div class="main p-md-4">
             @yield('dashboard-content')
         </div>
     </div>

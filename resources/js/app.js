@@ -31,4 +31,5 @@ document.addEventListener("DOMContentLoaded", function () {
     textareaIds.forEach(function (id) {
         new SimpleMDE({ element: document.getElementById(id) });
     });
+
 });
