@@ -3,6 +3,7 @@ require("./bootstrap");
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 document.addEventListener("DOMContentLoaded", function () {
+
     //
     const textarea = document.getElementById("meta_description");
     const charCount = document.getElementById("char-count");

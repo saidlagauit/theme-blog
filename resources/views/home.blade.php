@@ -17,9 +17,7 @@
             <div class="list-post">
                 @foreach ($mostViewed as $post)
                     <div class="post border-bottom-0 border">
-                        <a href="{{ route('blog.single-blog', $post->slug) }}">
-                            <p class="m-0">{{ $post->title }}</p><span>{{ $post->created_at->format('F d, Y') }}</span>
-                        </a>
+                        <a href="{{ route('blog.single-blog', $post->slug) }}"><p class="m-0">{{ $post->title }}</p><span>{{ $post->created_at->format('F d, Y') }}</span></a>
                     </div>
                 @endforeach
             </div>

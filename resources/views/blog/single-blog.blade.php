@@ -21,7 +21,10 @@
                     </div>
                 @endauth
 
-                <img src="{{ asset('storage/' . $post->imgCover) }}" alt="{{ $post->title }}" class="single-blog-cover" title="{{ $post->title }}">
+
+                @if (file_exists(public_path('storage/' . $post->imgCover)))
+                    <img src="{{ asset('storage/' . $post->imgCover) }}" alt="{{ $post->title }}" class="single-blog-cover" title="{{ $post->title }}">
+                @endif
                 <h2 class="single-blog-title">{{ $post->title }}</h2>
                 <span class="text-muted">Premiered on {{ $post->created_at->format('F d, Y') }}</span>
                 <div class="single-blog-content">{!! Parsedown::instance()->text($post->content) !!}</div>
@@ -112,13 +115,13 @@
                     <div class="post-navigation bg-body-tertiary my-2">
                         @if ($previousPost)
                             <div class="previous-post">
-                                <span><i class="fa-solid fa-backward"></i> previous Post : </span>
+                                <span><i class="fa-solid fa-backward"></i> Previous Post : </span>
                                 <a href="{{ route('blog.single-blog', $previousPost->slug) }}">{{ $previousPost->title }}</a>
                             </div>
                         @endif
                         @if ($nextPost)
                             <div class="next-post">
-                                <span><i class="fa-solid fa-forward"></i> next Post : </span>
+                                <span><i class="fa-solid fa-forward"></i> Next Post : </span>
                                 <a href="{{ route('blog.single-blog', $nextPost->slug) }}">{{ $nextPost->title }}</a>
                             </div>
                         @endif
