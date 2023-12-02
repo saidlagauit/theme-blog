@@ -42,8 +42,8 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/comments/{commentId}/replies/{replyId}', [ReplyController::class, 'destroy'])->name('replies.destroy');
 
     Route::get('/dashboard/messages', [ContactController::class, 'msgViews'])->name('auth.msgs.messages');
-    Route::get('/dashboard/messages/{id}', [ContactController::class, 'show'])->name('auth.msgs.message-details');
-    Route::delete('/dashboard/messages/{id}', [ContactController::class, 'delete'])->name('auth.msgs.message-details.delete');
+    Route::get('/dashboard/messages/{id}/details', [ContactController::class, 'show'])->name('auth.msgs.message-details');
+    Route::delete('/dashboard/messages/{id}/delete', [ContactController::class, 'delete'])->name('auth.msgs.message-details.delete');
 
     Route::get('/dashboard/profile/{username}', [UserController::class, 'profile'])->name('auth.users.profile');
     Route::get('/dashboard/profile/{username}/edit', [UserController::class, 'edit'])->name('auth.users.edit');

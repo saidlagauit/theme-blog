@@ -7,7 +7,8 @@
 @section('dashboard-content')
 
     <div class="edit-post">
-        <h1>Edit Post : {{ $post->title }}</h1>
+        <!-- <h1>Edit Post : {{ $post->title }}</h1> -->
+        <a href="{{ route('auth.posts.index') }}" class="btn btn-outline-secondary mb-2">Back</a>
         <form method="POST" action="{{ route('auth.posts.update', ['id' => $post->id]) }}" enctype="multipart/form-data" autocomplete="off">
             @csrf
             @method('PUT')

@@ -12,8 +12,8 @@
         <p>Name: {{ $user->name }}</p>
         <p>Email: {{ $user->email }}</p>
         <div class="btn-action">
-            <a href="{{ route('auth.users.edit', ['username' => $user->username]) }}" class="btn btn-success">Edit Profile</a>
-            <a href="{{ route('auth.users.change-password', ['username' => $user->username]) }}" class="btn btn-info">Change Password</a>
+            <a href="{{ route('auth.users.edit', ['username' => $user->username]) }}" class="btn btn-success"><i class="fa-solid fa-user-pen"></i> Edit Profile</a>
+            <a href="{{ route('auth.users.change-password', ['username' => $user->username]) }}" class="btn btn-info"><i class="fa-solid fa-lock"></i> Change Password</a>
         </div>
     </div>
 
