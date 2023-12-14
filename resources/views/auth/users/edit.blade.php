@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 
-@section('title', 'Blog Theme | Edit Profile')
+@section('title', 'Blog Theme | ' . $user->name . ' Edit Profile')
 @section('meta_description', '')
 @section('keywords', '')
 
@@ -29,7 +29,7 @@
             </div>
             <div class="form-group">
                 <label for="bio">Bio</label>
-                <textarea class="form-control" id="bio" name="bio">{{ $user->bio }}</textarea>
+                <textarea class="form-control" id="bio" name="bio" rows="6">{{ $user->bio }}</textarea>
             </div>
             <div class="form-group">
                 <label for="link_twitter">Twitter Profile</label>
